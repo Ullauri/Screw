@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.gee.screw.Search">
+
+    <RadioGroup
+        android:id="@+id/searchModeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/tagRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="by Tags" />
+
+        <RadioButton
+            android:id="@+id/categoryRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="by Category" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchModeRadioGroup">
+
+        <ImageView
+            android:id="@+id/searchImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            app:srcCompat="@android:color/black" />
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@+id/searchImageView"
+            android:ems="10"
+            android:hint="Search Tag"
+            android:inputType="text" />
+
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/navigationBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0">
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/search" />
+
+        <ImageButton
+            android:id="@+id/mapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/map" />
+
+        <ImageButton
+            android:id="@+id/contactsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/contact" />
+
+        <ImageButton
+            android:id="@+id/profileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/up" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/categoryResultsScrollView"
+        android:layout_width="366dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/navigationBar"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TableLayout
+            android:id="@+id/categoryResultsTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:id="@+id/categoryLabelRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/categoryLabelTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Categories"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/mobileAppTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/darkRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/mobileAppTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile App"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/webAppTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/webAppTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Web App"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/dataScienceTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/darkRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/dataScienceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data Science"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/backendTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/backendTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Backend"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/graphicDesignTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/darkRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/graphicDesignTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Graphic Design"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/hardwareTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/hardwareTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hardware"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/testingTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/darkRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/testingTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Testing"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/miscTableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightRow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/miscTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Misc"
+                    android:textSize="25sp" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/tagResultsScrollView"
+        android:layout_width="366dp"
+        android:layout_height="350dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/navigationBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TableLayout
+            android:id="@+id/tagResultsTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:id="@+id/tagLabelRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tagLabelTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Tag Results"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

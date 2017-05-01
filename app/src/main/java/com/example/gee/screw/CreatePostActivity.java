@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class Create extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CreatePostActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button btnsubmit;
     private static final String[] CATEGORIES = {"Mobile App", "Web App", "Data Science", "Backend", "Graphic Design", "Hardware", "Testing", "Misc"};
     private String chosenCategory = "Mobile App";
@@ -23,20 +23,20 @@ public class Create extends AppCompatActivity implements AdapterView.OnItemSelec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create);
+        setContentView(R.layout.activity_create_post);
 
         btnsubmit = (Button) findViewById(R.id.submitButton);
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Create.this,Home.class);
+                Intent intent = new Intent(CreatePostActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
 
         Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
 
-        ArrayAdapter<String> categoryAdaptor = new ArrayAdapter<>(Create.this,
+        ArrayAdapter<String> categoryAdaptor = new ArrayAdapter<>(CreatePostActivity.this,
                 android.R.layout.simple_spinner_item, CATEGORIES);
         categoryAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 

@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class Home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     Button btncreate;
     ImageButton btnContact;
     ImageButton btnProfile;
@@ -26,7 +26,7 @@ public class Home extends AppCompatActivity {
         btncreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this,Create.class);
+                Intent intent = new Intent(HomeActivity.this,CreatePostActivity.class);
                 startActivity(intent);
             }
         });
@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity {
         btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this,ContactList.class);
+                Intent intent = new Intent(HomeActivity.this,ContactsActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class Home extends AppCompatActivity {
         btnmyProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this,Myprofile.class);
+                Intent intent = new Intent(HomeActivity.this,MyProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class Home extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this,Search.class);
+                Intent intent = new Intent(HomeActivity.this,SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,7 +65,7 @@ public class Home extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this,Home.class);
+                Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,7 +74,7 @@ public class Home extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this,MapsActivity.class);
+                Intent intent = new Intent(HomeActivity.this,MapsActivity.class);
                 startActivity(intent);
             }
         });
@@ -86,7 +86,7 @@ public class Home extends AppCompatActivity {
         String project = ((TextView) row.getChildAt(0)).getText().toString();;
         String date = ((TextView) row.getChildAt(1)).getText().toString();;
 
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, PostActivity.class));
     }
 
 }

@@ -17,8 +17,8 @@ public class SplashActivity extends AppCompatActivity {
         try {
             // after 3 sec
             Thread.sleep(3000);
-//            Go to Login
-            startActivity(new Intent(SplashActivity.this, Login.class));
+//            Go to LoginActivity
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             finish();
         } catch (InterruptedException e) {
             e.printStackTrace();

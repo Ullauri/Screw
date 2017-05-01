@@ -4,15 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
-public class Search extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity {
     ImageButton btnContact;
     ImageButton btnProfile;
     ImageButton btnmyProfile;
@@ -55,7 +53,7 @@ public class Search extends AppCompatActivity {
         btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search.this,Myprofile.class);
+                Intent intent = new Intent(SearchActivity.this,MyProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,7 +63,7 @@ public class Search extends AppCompatActivity {
         btnmyProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search.this,Myprofile.class);
+                Intent intent = new Intent(SearchActivity.this,MyProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,7 +72,7 @@ public class Search extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search.this,Search.class);
+                Intent intent = new Intent(SearchActivity.this,SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,7 +82,7 @@ public class Search extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search.this,Home.class);
+                Intent intent = new Intent(SearchActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -93,7 +91,7 @@ public class Search extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search.this,MapsActivity.class);
+                Intent intent = new Intent(SearchActivity.this,MapsActivity.class);
                 startActivity(intent);
             }
         });

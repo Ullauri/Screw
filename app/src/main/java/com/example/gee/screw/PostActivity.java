@@ -1,19 +1,13 @@
 package com.example.gee.screw;
 
-/**
- * Created by Gee on 4/29/17.
- */
-
-import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.content.Intent;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
 
-public class ContactList extends MainActivity {
+public class PostActivity extends AppCompatActivity {
 
     ImageButton btnContact;
     ImageButton btnProfile;
@@ -21,38 +15,39 @@ public class ContactList extends MainActivity {
     ImageButton btnSearch;
     ImageButton btnHome;
     ImageButton btnMap;
-    // Array of strings...
-    String[] mobileArray = {"Gee Huang","Byron Ullauri","Niaz Morshed","Sin Chiu ",
-            "Asifur"};
-
+    Button btnLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.contact_list);
+        setContentView(R.layout.activity_post);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.listview, mobileArray);
-
-        ListView listView = (ListView) findViewById(R.id.mobile_list);
-        listView.setAdapter(adapter);
+        //Intialization Button
 
         btnContact = (ImageButton) findViewById(R.id.contact_btn);
 
         btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContactList.this,ContactList.class);
+                Intent intent = new Intent(PostActivity.this,ContactsActivity.class);
                 startActivity(intent);
             }
         });
 
+        btnProfile = (ImageButton) findViewById(R.id.postview_user_img_btn);
 
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PostActivity.this,ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnmyProfile = (ImageButton) findViewById(R.id.user_btn);
         btnmyProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContactList.this,Myprofile.class);
+                Intent intent = new Intent(PostActivity.this,MyProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -61,17 +56,25 @@ public class ContactList extends MainActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContactList.this,Search.class);
+                Intent intent = new Intent(PostActivity.this,SearchActivity.class);
                 startActivity(intent);
             }
         });
 
+        btnLogin = (Button) findViewById(R.id.chat_btn);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PostActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnHome = (ImageButton) findViewById(R.id.home_btn);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContactList.this,Home.class);
+                Intent intent = new Intent(PostActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,10 +83,9 @@ public class ContactList extends MainActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContactList.this,MapsActivity.class);
+                Intent intent = new Intent(PostActivity.this,MapsActivity.class);
                 startActivity(intent);
             }
         });
-    }
 }
-
+}
